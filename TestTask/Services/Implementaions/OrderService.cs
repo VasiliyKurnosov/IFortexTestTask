@@ -16,7 +16,7 @@ namespace TestTask.Services.Implementations
 
         public async Task<Order> GetOrder()
         {
-            return await applicationDbContext.Orders.OrderByDescending(order => order.Price).FirstOrDefaultAsync();
+            return await applicationDbContext.Orders.OrderByDescending(order => order.Price * order.Quantity).FirstOrDefaultAsync();
         }
 
         public async Task<List<Order>> GetOrders()
